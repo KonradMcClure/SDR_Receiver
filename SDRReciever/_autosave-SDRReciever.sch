@@ -5,10 +5,10 @@ $Descr A4 11693 8268
 encoding utf-8
 Sheet 1 1
 Title "Low(ish) Cost SDR Reciever"
-Date "2020-04-17"
+Date "2020-06-04"
 Rev "3"
 Comp "Walla Walla University"
-Comment1 ""
+Comment1 "Partner: Caleb Froelich"
 Comment2 ""
 Comment3 "ENGR 357"
 Comment4 "Konrad McClure"
@@ -1953,10 +1953,10 @@ Connection ~ 3450 4850
 Wire Wire Line
 	3450 4850 3650 4850
 $Comp
-L Amplifier_Operational:LM741 U?
+L Amplifier_Operational:LM741 U7
 U 1 1 5EDAB873
 P 9825 5625
-F 0 "U?" H 10169 5671 50  0000 L CNN
+F 0 "U7" H 10169 5671 50  0000 L CNN
 F 1 "LM741" H 10169 5580 50  0000 L CNN
 F 2 "" H 9875 5675 50  0001 C CNN
 F 3 "http://www.ti.com/lit/ds/symlink/lm741.pdf" H 9975 5775 50  0001 C CNN
@@ -1964,10 +1964,10 @@ F 3 "http://www.ti.com/lit/ds/symlink/lm741.pdf" H 9975 5775 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L power:+5V #PWR?
+L power:+5V #PWR042
 U 1 1 5EDC9E45
 P 9725 5325
-F 0 "#PWR?" H 9725 5175 50  0001 C CNN
+F 0 "#PWR042" H 9725 5175 50  0001 C CNN
 F 1 "+5V" H 9875 5375 50  0000 C CNN
 F 2 "" H 9725 5325 50  0001 C CNN
 F 3 "" H 9725 5325 50  0001 C CNN
@@ -1983,10 +1983,10 @@ Wire Wire Line
 Wire Wire Line
 	10125 6175 10125 5625
 $Comp
-L power:GND #PWR?
+L power:GND #PWR026
 U 1 1 5EDF4DF4
 P 8925 6100
-F 0 "#PWR?" H 8925 5850 50  0001 C CNN
+F 0 "#PWR026" H 8925 5850 50  0001 C CNN
 F 1 "GND" H 9075 6050 50  0000 C CNN
 F 2 "" H 8925 6100 50  0001 C CNN
 F 3 "" H 8925 6100 50  0001 C CNN
@@ -2012,10 +2012,10 @@ Connection ~ 10125 5625
 Text Notes 9700 5125 0    50   ~ 0
 The INA821ID Amps require the REF\ninput to have a voltage source with a\nlow output impedence. The LM741\nvoltage buffer handles this
 $Comp
-L Device:R_POT RV?
+L Device:R_POT RV1
 U 1 1 5EE830FE
 P 5450 1200
-F 0 "RV?" V 5243 1200 50  0000 C CNN
+F 0 "RV1" V 5243 1200 50  0000 C CNN
 F 1 "100k" V 5334 1200 50  0000 C CNN
 F 2 "" H 5450 1200 50  0001 C CNN
 F 3 "~" H 5450 1200 50  0001 C CNN
@@ -2045,10 +2045,10 @@ Wire Wire Line
 Wire Wire Line
 	700  7525 1075 7525
 $Comp
-L Device:R R?
+L Device:R R7
 U 1 1 5EF8A4E5
 P 825 7225
-F 0 "R?" H 895 7271 50  0000 L CNN
+F 0 "R7" H 895 7271 50  0000 L CNN
 F 1 "1k" H 895 7180 50  0000 L CNN
 F 2 "" V 755 7225 50  0001 C CNN
 F 3 "~" H 825 7225 50  0001 C CNN
@@ -2056,10 +2056,10 @@ F 3 "~" H 825 7225 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L Device:R R?
+L Device:R R8
 U 1 1 5EF8B556
 P 1075 7225
-F 0 "R?" H 1145 7271 50  0000 L CNN
+F 0 "R8" H 1145 7271 50  0000 L CNN
 F 1 "1k" H 1145 7180 50  0000 L CNN
 F 2 "" V 1005 7225 50  0001 C CNN
 F 3 "~" H 1075 7225 50  0001 C CNN
@@ -2071,10 +2071,10 @@ Wire Wire Line
 Wire Wire Line
 	1075 7525 1075 7375
 $Comp
-L power:+3.3V #PWR?
+L power:+3.3V #PWR025
 U 1 1 5EFAA0AC
 P 650 7075
-F 0 "#PWR?" H 650 6925 50  0001 C CNN
+F 0 "#PWR025" H 650 6925 50  0001 C CNN
 F 1 "+3.3V" H 650 7225 50  0000 C CNN
 F 2 "" H 650 7075 50  0001 C CNN
 F 3 "" H 650 7075 50  0001 C CNN
@@ -2104,4 +2104,6 @@ Wire Wire Line
 	1100 6950 1350 6950
 Text Notes 750  6725 0    50   ~ 0
 25MHz
+NoConn ~ 9825 5925
+NoConn ~ 9925 5925
 $EndSCHEMATC

@@ -5,10 +5,10 @@ $Descr A4 11693 8268
 encoding utf-8
 Sheet 1 1
 Title "Low(ish) Cost SDR Reciever"
-Date "2020-04-17"
+Date "2020-06-04"
 Rev "3"
 Comp "Walla Walla University"
-Comment1 ""
+Comment1 "Partner: Caleb Froelich"
 Comment2 ""
 Comment3 "ENGR 357"
 Comment4 "Konrad McClure"
