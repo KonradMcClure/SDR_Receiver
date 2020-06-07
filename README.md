@@ -5,7 +5,7 @@ Software Defined Radio Receiver designed together with Caleb Froelich for our Wa
 toc...
 
 ## Board Design
-![Board Render](/images/BoardRender.png)
+![Board Render](/images/BoardRender_Rev2.png)
 
 Designed on a 100mm x 100mm Board...
 
