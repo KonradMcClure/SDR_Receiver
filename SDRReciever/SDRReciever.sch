@@ -260,12 +260,8 @@ Wire Wire Line
 	1850 6625 1850 6675
 Wire Wire Line
 	1850 6925 1850 6875
-Text Notes 2250 3250 0    50   ~ 0
+Text Notes 2175 3225 0    50   ~ 0
 10.7 kHz IF
-Text Notes 2000 875  0    50   ~ 0
-Bandpass Filter 5-18MHz (3rd Order, Series-First Bessel)\nBy doing Series-First, DC signals cannot pass through the capacitor (C2), \nallowing better control over the DC offset going into the op-amps
-Text Notes 2025 2225 0    50   ~ 0
-Voltage Protection Diodes:\nThese will prevent too large of signals \nfrom coming through
 $Comp
 L power:GND #PWR015
 U 1 1 5EAD8F42
@@ -2077,8 +2073,6 @@ NoConn ~ 9825 5925
 NoConn ~ 9925 5925
 Wire Notes Line
 	3375 1400 3375 1225
-Text Notes 1150 1925 0    50   ~ 0
-Jumper for\npreventing \nground loops
 Wire Notes Line
 	4600 1150 4750 1150
 Wire Notes Line
@@ -2132,5 +2126,27 @@ Text Notes 3175 3525 0    50   ~ 0
 Text Notes 3175 4425 0    50   ~ 0
 01 = 90°
 Text Notes 3175 4825 0    50   ~ 0
+11 = 270°
+Text Notes 1150 1925 0    50   ~ 0
+Jumper for\npreventing \nground loops
+Text Notes 2000 875  0    50   ~ 0
+Bandpass Filter 5-18MHz (3rd Order, Series-First Bessel)\nBy doing Series-First, DC signals cannot pass through the capacitor (C2), \nallowing better control over the DC offset going into the op-amps
+Text Notes 2025 2225 0    50   ~ 0
+Voltage Protection Diodes:\nThese will prevent too large of signals \nfrom coming through
+Text Notes 2175 3550 0    50   ~ 0
+00 = 0°
+Text Notes 2175 4050 0    50   ~ 0
+00 = 0°
+Text Notes 2175 3650 0    50   ~ 0
+10 = 180°
+Text Notes 2175 4150 0    50   ~ 0
+10 = 180°
+Text Notes 2175 3750 0    50   ~ 0
+01 = 90°
+Text Notes 2175 4250 0    50   ~ 0
+01 = 90°
+Text Notes 2175 4350 0    50   ~ 0
+11 = 270°
+Text Notes 2175 3850 0    50   ~ 0
 11 = 270°
 $EndSCHEMATC

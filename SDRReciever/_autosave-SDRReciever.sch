@@ -260,12 +260,8 @@ Wire Wire Line
 	1850 6625 1850 6675
 Wire Wire Line
 	1850 6925 1850 6875
-Text Notes 2250 3250 0    50   ~ 0
+Text Notes 2175 3225 0    50   ~ 0
 10.7 kHz IF
-Text Notes 2000 875  0    50   ~ 0
-Bandpass Filter 5-18MHz (3rd Order, Series-First Bessel)\nBy doing Series-First, DC signals cannot pass through the capacitor (C2), \nallowing better control over the DC offset going into the op-amps
-Text Notes 2025 2225 0    50   ~ 0
-Voltage Protection Diodes:\nThese will prevent too large of signals \nfrom coming through
 $Comp
 L power:GND #PWR015
 U 1 1 5EAD8F42
@@ -741,17 +737,6 @@ Wire Wire Line
 Text Notes 3050 2625 0    50   ~ 0
 Low Noise Instrumentation Amplifiers\nGain Controlled by 1 Resistor. J18 and \nJ19 used for testing for desired gain
 $Comp
-L Device:R R5
-U 1 1 5EA72DEC
-P 3725 3150
-F 0 "R5" V 3518 3150 50  0000 C CNN
-F 1 "50" V 3609 3150 50  0000 C CNN
-F 2 "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal" V 3655 3150 50  0001 C CNN
-F 3 "~" H 3725 3150 50  0001 C CNN
-	1    3725 3150
-	0    1    1    0   
-$EndComp
-$Comp
 L Device:C C5
 U 1 1 5E972924
 P 3925 3850
@@ -761,17 +746,6 @@ F 2 "Capacitor_THT:C_Disc_D5.0mm_W2.5mm_P2.50mm" H 3963 3700 50  0001 C CNN
 F 3 "~" H 3925 3850 50  0001 C CNN
 	1    3925 3850
 	1    0    0    -1  
-$EndComp
-$Comp
-L Device:R R10
-U 1 1 5EAB1A22
-P 3725 3550
-F 0 "R10" V 3518 3550 50  0000 C CNN
-F 1 "50" V 3609 3550 50  0000 C CNN
-F 2 "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal" V 3655 3550 50  0001 C CNN
-F 3 "~" H 3725 3550 50  0001 C CNN
-	1    3725 3550
-	0    1    1    0   
 $EndComp
 $Comp
 L power:GND #PWR09
@@ -784,30 +758,6 @@ F 3 "" H 3925 5300 50  0001 C CNN
 	1    3925 5300
 	1    0    0    -1  
 $EndComp
-$Comp
-L Device:R R11
-U 1 1 5EACF577
-P 3725 4450
-F 0 "R11" V 3518 4450 50  0000 C CNN
-F 1 "50" V 3609 4450 50  0000 C CNN
-F 2 "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal" V 3655 4450 50  0001 C CNN
-F 3 "~" H 3725 4450 50  0001 C CNN
-	1    3725 4450
-	0    1    1    0   
-$EndComp
-$Comp
-L Device:R R12
-U 1 1 5EACFAEA
-P 3725 4850
-F 0 "R12" V 3518 4850 50  0000 C CNN
-F 1 "50" V 3609 4850 50  0000 C CNN
-F 2 "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal" V 3655 4850 50  0001 C CNN
-F 3 "~" H 3725 4850 50  0001 C CNN
-	1    3725 4850
-	0    1    1    0   
-$EndComp
-Wire Wire Line
-	3875 3150 4125 3150
 $Comp
 L power:PWR_FLAG #FLG0102
 U 1 1 5EB23ACA
@@ -1284,8 +1234,6 @@ Wire Wire Line
 Connection ~ 3050 3850
 Wire Wire Line
 	5775 4650 6125 4650
-Wire Wire Line
-	3875 3550 3925 3550
 Wire Wire Line
 	4125 3150 4275 3150
 Wire Wire Line
@@ -1911,11 +1859,7 @@ Wire Wire Line
 	4525 4800 4625 4800
 Connection ~ 4625 4800
 Wire Wire Line
-	3875 4850 3925 4850
-Wire Wire Line
 	4125 4450 4275 4450
-Wire Wire Line
-	3875 4450 4125 4450
 Wire Wire Line
 	4125 4850 4925 4850
 Wire Wire Line
@@ -2077,8 +2021,6 @@ NoConn ~ 9825 5925
 NoConn ~ 9925 5925
 Wire Notes Line
 	3375 1400 3375 1225
-Text Notes 1150 1925 0    50   ~ 0
-Jumper for\npreventing \nground loops
 Wire Notes Line
 	4600 1150 4750 1150
 Wire Notes Line
@@ -2117,14 +2059,6 @@ Text Notes 9075 4075 0    50   ~ 0
 Q Signal
 Text Notes 8500 3125 0    50   ~ 0
 The dual op amp symbol was made\nby me. It is not implying that the V+ of one\nis connected to the V- of the other, but that they\nshare the same power and ground pins
-Wire Wire Line
-	2750 3150 3575 3150
-Wire Wire Line
-	3050 3550 3575 3550
-Wire Wire Line
-	2850 4450 3575 4450
-Wire Wire Line
-	2950 4850 3575 4850
 Text Notes 3175 3125 0    50   ~ 0
 00 = 0°
 Text Notes 3175 3525 0    50   ~ 0
@@ -2133,4 +2067,34 @@ Text Notes 3175 4425 0    50   ~ 0
 01 = 90°
 Text Notes 3175 4825 0    50   ~ 0
 11 = 270°
+Text Notes 1150 1925 0    50   ~ 0
+Jumper for\npreventing \nground loops
+Text Notes 2000 875  0    50   ~ 0
+Bandpass Filter 5-18MHz (3rd Order, Series-First Bessel)\nBy doing Series-First, DC signals cannot pass through the capacitor (C2), \nallowing better control over the DC offset going into the op-amps
+Text Notes 2025 2225 0    50   ~ 0
+Voltage Protection Diodes:\nThese will prevent too large of signals \nfrom coming through
+Text Notes 2175 3550 0    50   ~ 0
+00 = 0°
+Text Notes 2175 4050 0    50   ~ 0
+00 = 0°
+Text Notes 2175 3650 0    50   ~ 0
+10 = 180°
+Text Notes 2175 4150 0    50   ~ 0
+10 = 180°
+Text Notes 2175 3750 0    50   ~ 0
+01 = 90°
+Text Notes 2175 4250 0    50   ~ 0
+01 = 90°
+Text Notes 2175 4350 0    50   ~ 0
+11 = 270°
+Text Notes 2175 3850 0    50   ~ 0
+11 = 270°
+Wire Wire Line
+	2750 3150 4125 3150
+Wire Wire Line
+	3050 3550 3925 3550
+Wire Wire Line
+	2850 4450 4125 4450
+Wire Wire Line
+	2950 4850 3925 4850
 $EndSCHEMATC
