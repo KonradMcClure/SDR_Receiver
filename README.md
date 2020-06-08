@@ -5,7 +5,7 @@ The goal of this project was to design a low-cost software-defined radio (SDR) r
 toc...
 
 # Theory
-![Circuit Block Diagram](/images/SDRReceiverBlockDiagram.png)
+![Circuit Block Diagram](/images/Diagrams/SDRReceiverBlockDiagram.png)
 The basics of the SDR Radio are shown above in the block diagram. An antenna picks up the radio signal and passes it through a bandpass filter. This filter will attenuate any signals outside our desired range of 5 – 10 MHz. This is then passed through a Tayloe Mixer, also known as the Tayloe Quadrature Product Detector. The Tayloe Mixer is a simple and efficient mixer that uses a 1:4 demultiplexer and operational amplifiers to generate the I and Q quadrature signals for demodulation. After the signal has been split into four bandbase signals, they are amplified and combined into the I and Q quadrature signals. Those signals go through a final Low-Pass filter that will attenuate signals above 100KHz in frequency, effectively smoothing the output signal. This signal is then sent via 3.5mm audio cable to the soundcard which demodulates the signal. Quisk can then read the input from the sound card and play it. It also interfaces to the Arduino Nano to set the speed of the local oscillator for tuning into the desired frequency.
 
 # Simulation
@@ -15,22 +15,25 @@ LTspice simulation info...
 This page is also acting as a report of the design we had for our class project. If the design is continued on in the future, I will likely move this description to the Wiki and update it with the new one.
 
 ## Bandpass Filter
+![Bandpass Filter Rev2](/images/schematics/Rev2_Schem_BandpassFilter.png)
 The bandpass filter is a 3rd-Order, Series-First, Bessel filter that was generated using the RF Tools LC Filters Design Tool. It is designed to have input and output impedances of 50 Ω. The motivation to use a series-first configuration came from the capacitor C2 acting as a blockade for any DC signal coming in through the antenna. This would allow us better control over the DC voltage offset that is later required for our single-supply op-amps. 
 
 ## Voltage Smoother and Analog Ground Reference
-
+![Voltage Smoother Rev2]((/images/schematics/Rev2_Schem_VoltageSmoother.png)
 Professor Rob Frohne suggested that we all use a BJT to smooth the voltage coming from the computer, since all the rapid switching that happens in computers tends to create a lot of noise. He measured the output voltage to be about 4.3V based on the design on [his GitHub](https://github.com/frohro/IQ_SDR) , so we followed his example and designed ours the same way.
 
 ## DC Voltage Offset
+![DC Voltage OFfset Rev 2](/images/schematics/Rev2_Schem_DCOffset.png)
 Since we didn't want to create a negative supply for our op-amps, we opted for using them with a single supply and giving our signal a DC offset that sits in the middle between the 4.3V supply and ground. This ofset was done via a simple voltage divider of two 10k resistors from 4.3V to GND.
 
 ## Tayloe Mixer
+![Tayloe Mixer Rev 2](/images/schematics/Rev2_Schem_TayloeMixer.png)
 
 ## Instrumentation Amplifiers
+![Instrumenatation Amps Rev 2](/images/schematics/Rev2_Schem_InstAmps.png)
 
 ## Low-Pass Filter
-
-## Output
+![Lowpass Filter](/images/schematics/Rev2_Schem_LowpassFilter.png)
 
 # PCB Design
 ![Board Render](/images/BoardRender_Rev2.png)
