@@ -2149,4 +2149,14 @@ Text Notes 4200 1175 0    50   ~ 0
 T50-6 Toroid: \n30 turns
 Wire Notes Line
 	4150 1850 4150 1700
+Text Notes 625  925  0    50   ~ 0
+Toroid Info:\nT37-6: 3nH per turns^2\nT50-6: 4nH per turns^2\nSee datasheet for more info
+Wire Notes Line
+	600  600  600  950 
+Wire Notes Line
+	600  950  1750 950 
+Wire Notes Line
+	1750 950  1750 600 
+Wire Notes Line
+	1750 600  600  600 
 $EndSCHEMATC
