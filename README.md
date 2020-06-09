@@ -51,7 +51,7 @@ The [INA821ID Instrumentation Amplifiers](http://www.ti.com/lit/ds/symlink/ina82
 Now that we have our I and Q signals, we'll send them through a Lowpass filter that will attenuate the high frequencies that may still remain in the signal, effectively smoothing it out. For this we used an [OP213FPZ op amp](https://www.analog.com/media/en/technical-documentation/data-sheets/OP113_213_413.pdf), which has 2-channel produces low noise. We used the [Texas Instruments Filter Design Tool](https://webench.ti.com/filter-design-tool/) to generate this as a two-pole filter with a 100kHz cutoff and no gain.
 
 ## Voltage Smoother and Analog Ground Reference
-![Voltage Smoother Rev2]((/images/Schematics/Rev2_Schem_VoltageSmoother.png)
+![Voltage Smoother Rev2](/images/Schematics/Rev2_Schem_VoltageSmoother.png)
 
 Professor Rob Frohne suggested that we all use a BJT to smooth the voltage coming from the computer, since all the rapid switching that happens in computers tends to create a lot of noise. He measured the output voltage to be about 4.3V based on the design on [his GitHub](https://github.com/frohro/IQ_SDR) , so we followed his example and designed ours the same way.
 
