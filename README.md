@@ -20,6 +20,10 @@ The Software Defined Radio (SDR) receiver connects to an antenna and covers the 
 The basics of the SDR Receiver are shown above in the block diagram, with the blue components being defined by software. An antenna picks up the radio signal and passes it through a bandpass filter. This filter will attenuate any signals outside our desired range of 5 – 10 MHz. This is then passed through a Tayloe Mixer, also known as the Tayloe Quadrature Product Detector. The Tayloe Mixer is a simple and efficient mixer that uses a 1:4 demultiplexer and operational amplifiers to generate the I and Q quadrature signals for demodulation. After the signal has been split into four bandbase signals, they are amplified and combined into the I and Q quadrature signals. Those signals go through a final Low-Pass filter that will attenuate signals above 100KHz in frequency, effectively smoothing the output signal. This signal is then sent via 3.5mm audio cable to the soundcard which demodulates the signal. Quisk can then read the input from the sound card and play it. Quisk also interfaces to the Arduino Nano to set the speed of the local oscillator for tuning into the desired frequency.
 
 # Rev 2 Design
+![Rev 2 Schematic](images/Schematics/Rev2_Schem.png)
+
+Here is the full design schematic, which we'll break down piece by piece below. You can look at the full image [here](https://github.com/KonradMcClure/SDR_Receiver/blob/master/images/Schematics/Rev2_Schem.svg) or download the [KiCad](https://kicad-pcb.org/) project [here](https://github.com/KonradMcClure/SDR_Receiver/tree/master/SDRReciever) to take a closer look yourself.
+
 This page is also acting as a report of the design we had for our class project. If the design is continued on in the future, I will likely move this description to the Wiki and update it with the new one.
 
 ## Bandpass Filter
