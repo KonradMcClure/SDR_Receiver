@@ -1,21 +1,19 @@
-# SDR_Receiver
-The goal of this project was to design a low-cost software-defined radio (SDR) receiver in a team of two. The SDR receiver connects to an antenna and covers the filtering, mixing, and amplification of the desired signal. It then connects a sound card within a computer and software handles the demodulation of the signal into playable audio. The mixing is handled using an Arduino Nano running code provided to us by our Professor, [Dr. Rob Frohne](https://github.com/frohro), which interfaces with Quisk, an SDR radio program that controls the receiver through the Arduino. Using Quisk, the radio can be tuned to a certain frequency by adjusting the speed of the local oscillator used in the mixing process. Our budget on this project to keep with the low-cost aspect was about $30 including fabrication of the PCB and the required components. 
+# Low-Cost Software Defined Radio Receiver
+The goal of this project was to design a low-cost software-defined radio (SDR) receiver. 
+## Design Objectives
+Our professor, [Dr. Rob Frohne](https://github.com/frohro), gave us the following design objectives:
+  1. Minimum discernible signal less than 1 uV
+  2. Good image rejection
+  3. Low noise figure
+  4. Inexpensive to build ($25 component budget)
+  
+My partner, [Caleb Froelich](https://github.com/froeca), and I set our own design objectives as well to help narrow down the design we settled on:
+  1. **Simple Design**: We wanted our design to be easy to understand and construct. As such we avoided using transformers and used a Tayloe Mixer which has a relatively easy to understand design.
+  2. **Ease of Construction**: Since this class took place during an online quarter due to COVID-19, we wanted to make sure construction wouldn't be too difficult without the usual tools we have in our lab. This decision shaped our board layout and part selection (picking through-hole parts as opposed to surface-mount when possible).
+  3. **Ease and Quality of Amplification**: Most of the cost that goes into the board went into getting good, low-noise operational amplifiers. The instrumentation amps we chose use a single resistor to set the gain, making it easy to switch out and test different gain values.
 
-# Table of Contents
-- Theory
-- Rev 2 Design
-  - Bandpass Filter
-  - DC Voltage Offset
-  - Tayloe Mixer
-    - Demultiplexer
-    - Instrumentation Amplifiers
-  - Lowpass Filter + Output
-  - Voltage Smoother
-- Simulation
-- PCB Design
-- Construction and Testing
-- Revisions
-- Credits
+## Overview
+The Software Defined Radio (SDR) receiver connects to an antenna and covers the filtering, mixing, and amplification of the desired signal. It then connects a sound card within a computer and software handles the demodulation of the signal into playable audio. The mixing is handled using an Arduino Nano running code provided to us by our Professor, [Dr. Rob Frohne](https://github.com/frohro), which interfaces with [Quisk](https://james.ahlstrom.name/quisk/), an SDR that controls the receiver through the Arduino. Using Quisk, the radio can be tuned to a certain frequency by adjusting the speed of the local oscillator used in the mixing process. Our budget on this project to keep with the low-cost aspect was about $30 including fabrication of the PCB and the required components. 
 
 # Theory
 ![Circuit Block Diagram](/images/Diagrams/SDRReceiverBlockDiagram.png)
@@ -59,7 +57,7 @@ Professor Rob Frohne suggested that we all use a BJT to smooth the voltage comin
 LTspice simulation info...
 
 # PCB Design
-![Board Render](/images/BoardRender_Rev2.png)
+![Board Render](/images/BoardRenderSmall_Rev2.png)
 
 We sourced our board from [JLCPCB](https://jlcpcb.com/), who had an offer going of 5, 2-layer, 100x100mm boards for $2. With that size in mind, my partner and I both did our own board layouts and compared after to decide which to send in for printing. We wanted to be sure to match the impedence of the antenna all the way through to the instrumentation amps, so we used the PCB Calculator in KiCad to find the trace width we needed: 1.064mm. The input to the calculator can be seen here:
 ![PCB Calculator Screen](/images/PCBCalculatorSettings.png)
@@ -71,23 +69,11 @@ The PCB layout we decided to print was my partner's who had a layout with really
 
 Before receiving the parts from Dr. Frohne, JLCPCB, and Digikey, we put together a Construction and Testing plan which can be found in the documents folder of this repository. This plan wasn't followed exactly to the T during our assembly, but it was an important step for us thinking through the process and how to best assemble the sections so that we could test them in isolation before connecting them together.
 
-
-
-# Testing 
-## Bandpass Filter 
-Given the bandpass filter is on one edge of the board, it seemed like an ideal place to start for assembly and testing. 
-
-##
-
-# Revisions for a Rev 3
-## Bandpass Filter Fix
-![Corrected Bandpass Filter](/images/CorrectedBandpassFilter.png) 
-![Corrected Filter Simulation](/images/CorrectedFilterSim.png)
-
-Somewhere along the way, we made some mistake in our generation of the bandpass filter, which resulted in a response similar to what we were looking for but did not attenuate the high frequencies well. The above design has been corrected for cutoffs at 5MHz and 10MHz.
-Somewhere along the way, we made some mistake in our generation of the bandpass filter, which resulted in a response similar to what we were looking for but did not attenuate the high frequencies well. The above design has been corrected for cutoffs at 5MHz and 10MHz.
+# Testing
+For info on the testing of the project, head over to the [Testing page on the Wiki](https://github.com/KonradMcClure/SDR_Receiver/wiki/Rev-2-Testing)!
 
 
 
 # Credits
-Caleb, Dr. Frohne...
+My teammate [Caleb Froelich](https://github.com/froeca), who has [his own repository of this project](https://github.com/froeca/Software-Defined-Radio).
+My professor [Dr. Rob Frohne](https://github.com/frohro), who also has [his own repository of this project](https://github.com/frohro/IQ_SDR)!
