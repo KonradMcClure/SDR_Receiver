@@ -57,7 +57,7 @@ Professor Rob Frohne suggested that we all use a BJT to smooth the voltage comin
 LTspice simulation info...
 
 # PCB Design
-![Board Render](/images/BoardRender_Rev2.png)
+![Board Render](/images/BoardRenderSmall_Rev2.png)
 
 We sourced our board from [JLCPCB](https://jlcpcb.com/), who had an offer going of 5, 2-layer, 100x100mm boards for $2. With that size in mind, my partner and I both did our own board layouts and compared after to decide which to send in for printing. We wanted to be sure to match the impedence of the antenna all the way through to the instrumentation amps, so we used the PCB Calculator in KiCad to find the trace width we needed: 1.064mm. The input to the calculator can be seen here:
 ![PCB Calculator Screen](/images/PCBCalculatorSettings.png)
