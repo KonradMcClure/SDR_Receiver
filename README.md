@@ -1,5 +1,5 @@
 # SDR_Receiver
-The goal of this project was to design a low-cost software-defined radio (SDR) receiver in a team of two. The SDR receiver connects to an antenna and covers the filtering, mixing, and amplification of the desired signal. It then connects a sound card within a computer and software handles the demodulation of the signal into playable audio. The mixing is handled using an Arduino Nano running code provided to us by Professor Frohne, which interfaces with Quisk, an SDR radio program that controls the receiver through the Arduino. Using Quisk, the radio can be tuned to a certain frequency by adjusting the speed of the local oscillator used in the mixing process. Our budget on this project to keep with the low-cost aspect was about $30 including fabrication of the PCB and the required components. 
+The goal of this project was to design a low-cost software-defined radio (SDR) receiver in a team of two. The SDR receiver connects to an antenna and covers the filtering, mixing, and amplification of the desired signal. It then connects a sound card within a computer and software handles the demodulation of the signal into playable audio. The mixing is handled using an Arduino Nano running code provided to us by our Professor, [Dr. Rob Frohne](https://github.com/frohro), which interfaces with Quisk, an SDR radio program that controls the receiver through the Arduino. Using Quisk, the radio can be tuned to a certain frequency by adjusting the speed of the local oscillator used in the mixing process. Our budget on this project to keep with the low-cost aspect was about $30 including fabrication of the PCB and the required components. 
 
 # Table of Contents
 - Theory
@@ -61,16 +61,25 @@ LTspice simulation info...
 # PCB Design
 ![Board Render](/images/BoardRender_Rev2.png)
 
-We sourced our board from [JLCPCB](https://jlcpcb.com/), who had an offer going of 5, 2-layer, 100x100mm boards for $2. With that size in mind, my partner and I both did our own board layouts and compared after to decide which to send in for printing. We wanted to be sure to match the impedence of the antenna all the way through to the instrumentation amps, so we 
+We sourced our board from [JLCPCB](https://jlcpcb.com/), who had an offer going of 5, 2-layer, 100x100mm boards for $2. With that size in mind, my partner and I both did our own board layouts and compared after to decide which to send in for printing. We wanted to be sure to match the impedence of the antenna all the way through to the instrumentation amps, so we used the PCB Calculator in KiCad to find the trace width we needed: 1.064mm. The input to the calculator can be seen here:
+![PCB Calculator Screen](/images/PCBCalculatorSettings.png)
 
+We got the rest of the information, such as the substrate parameters, from [JLCPCB's Capabilities page](https://jlcpcb.com/capabilities/Capabilities). The design shown above was mine, doing my best to keep traces relatively short and stright and parts close to the next. However...
 
 # Construction and Testing
-The PCB layout we decided to print was my partner's who had a layout with really nice divisions between sections, which we believed would be easier for testing. You can find that layout on [his GitHub page](https://github.com/froeca/Software-Defined-Radio). All of the components are exactly the same, despite the different layout.
+The PCB layout we decided to print was my partner's who had a layout with really nice divisions between sections, which we believed would be easier for testing. You can find that layout on [his GitHub page](https://github.com/froeca/Software-Defined-Radio). All of the components are exactly the same, only the layout is different.
+
+Before receiving the parts from Dr. Frohne, JLCPCB, and Digikey, we put together a Construction and Testing plan which can be found in the documents folder of this repository. This plan wasn't followed exactly to the T during our assembly, but it was an important step for us thinking through the process and how to best assemble the sections so that we could test them in isolation before connecting them together.
+
+
 
 # Testing 
+## Bandpass Filter 
+Given the bandpass filter is on one edge of the board, it seemed like an ideal place to start for assembly and testing. 
 
+##
 
-# Revisions
+# Revisions for a Rev 3
 ## Bandpass Filter Fix
 ![Corrected Bandpass Filter](/images/CorrectedBandpassFilter.png) 
 ![Corrected Filter Simulation](/images/CorrectedFilterSim.png)
