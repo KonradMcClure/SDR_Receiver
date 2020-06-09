@@ -853,20 +853,6 @@ Wire Wire Line
 Connection ~ 5600 6325
 Wire Wire Line
 	5600 6325 6300 6325
-$Comp
-L INA821ID:INA821ID U5
-U 1 1 5EA101A3
-P 5325 4650
-F 0 "U5" H 5175 4700 50  0000 L CNN
-F 1 "INA821ID" H 5075 4600 50  0000 L CNN
-F 2 "import_footprint:SOIC127P600X175-8N" H 5325 4650 50  0001 L BNN
-F 3 "B" H 5325 4650 50  0001 L BNN
-F 4 "1.75mm" H 5325 4650 50  0001 L BNN "Field4"
-F 5 "Texas Instruments" H 5325 4650 50  0001 L BNN "Field5"
-F 6 "IPC-7351B" H 5325 4650 50  0001 L BNN "Field6"
-	1    5325 4650
-	1    0    0    -1  
-$EndComp
 Wire Wire Line
 	4925 4750 4925 4800
 $Comp
@@ -876,7 +862,7 @@ P 5325 3350
 F 0 "U4" H 5175 3400 50  0000 L CNN
 F 1 "INA821ID" H 5075 3300 50  0000 L CNN
 F 2 "import_footprint:SOIC127P600X175-8N" H 5325 3350 50  0001 L BNN
-F 3 "B" H 5325 3350 50  0001 L BNN
+F 3 "http://www.ti.com/lit/ds/symlink/ina821.pdf?HQS=TI-null-null-mousermode-df-pf-null-wwe&DCM=yes&ref_url=https%3A%2F%2Fwww.mouser.com%2F&distId=26" H 5325 3350 50  0001 L BNN
 F 4 "1.75mm" H 5325 3350 50  0001 L BNN "Field4"
 F 5 "Texas Instruments" H 5325 3350 50  0001 L BNN "Field5"
 F 6 "IPC-7351B" H 5325 3350 50  0001 L BNN "Field6"
@@ -1323,7 +1309,7 @@ P 7775 3950
 F 0 "U6" H 8225 4000 60  0000 C CNN
 F 1 "OP213FPZ" H 8225 3875 60  0000 C CNN
 F 2 "Imported_Footprints:OP213FPZ" H 8975 4190 60  0001 C CNN
-F 3 "" H 7775 3950 60  0000 C CNN
+F 3 "https://www.analog.com/media/en/technical-documentation/data-sheets/OP113_213_413.pdf" H 7775 3950 60  0001 C CNN
 	1    7775 3950
 	1    0    0    -1  
 $EndComp
@@ -2159,4 +2145,18 @@ Wire Notes Line
 	1750 950  1750 600 
 Wire Notes Line
 	1750 600  600  600 
+$Comp
+L INA821ID:INA821ID U5
+U 1 1 5EA101A3
+P 5325 4650
+F 0 "U5" H 5175 4700 50  0000 L CNN
+F 1 "INA821ID" H 5075 4600 50  0000 L CNN
+F 2 "import_footprint:SOIC127P600X175-8N" H 5325 4650 50  0001 L BNN
+F 3 "B" H 5325 4650 50  0001 L BNN
+F 4 "1.75mm" H 5325 4650 50  0001 L BNN "Field4"
+F 5 "Texas Instruments" H 5325 4650 50  0001 L BNN "Field5"
+F 6 "IPC-7351B" H 5325 4650 50  0001 L BNN "Field6"
+	1    5325 4650
+	1    0    0    -1  
+$EndComp
 $EndSCHEMATC
