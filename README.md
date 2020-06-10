@@ -76,8 +76,18 @@ Before receiving the parts from Dr. Frohne, JLCPCB, and Digikey, we put together
 # Testing
 For info on the testing of the project, head over to the [Testing page on the Wiki](https://github.com/KonradMcClure/SDR_Receiver/wiki/Rev-2-Testing)!
 
+# Quisk Setup
+Loading the Arduino Nano with the OpenRadio software found [here](\Arduino\PSK), I opened the quisk_conf_openradio.py file and change the info in the SERIAL PORT SETTINGS sections to the COM# port that my arduino is plugged into. This was found in Device Manager on Windows 10. In Device Manager, I also right clicked the COM port and went to Properties > Port Settings and changed the Bits per second to 57600 to match the value in the config file.
 
+After opening Quisk, I went to Config > Radios and added a radio of the type SoftRock Fixed and named it MyRadioBoy (not necessary), setting it to open to that new radio. Under the new MyRadioBoy tab and Hardware subtab, I changed the Hardware File Path to point to the quisk_conf_openradio.py in the repository. Then in the Sound subtab, I made sure the I/Q Rx Sample Input was set to the sound card input that my 3.5mm cable was connected to from the board.
+
+# Results!
+Sending in a 8MHz test frequency, I could see that the image rejection was pretty good, but I went to the Config tab and clicked the "Adjust receive amplitude and phase" button. **I adjusted the levels for the best image rejection I could get, dropping the image down to about the same level as the spurious signals.**
+
+Then, using a step attenuator Caleb and I designed before this radio, I input a 50uV 8MHz signal to the receiver and attenuated it by 40dB, which was just higher than the spurious signals. **From this I concluded our minimum dicernable signal was about 0.5uV.**
+
+After stringing a wire out to my roof as an antenna (about 50ft up or so) and soldering one end to an SMA connector, I connected it to the board. While not the clearest, it picks up signals pretty well! [You can see some signals that I was able to receive here!](https://github.com/KonradMcClure/SDR_Receiver/tree/master/video)
 
 # Credits
 My teammate [Caleb Froelich](https://github.com/froeca), who has [his own repository of this project](https://github.com/froeca/Software-Defined-Radio).
-My professor [Dr. Rob Frohne](https://github.com/frohro), who also has [his own repository of this project](https://github.com/frohro/IQ_SDR)!
+My professor [Dr. Rob Frohne](https://github.com/frohro), who provided us with an example of a similar [project of his own here](https://github.com/frohro/IQ_SDR)!
