@@ -34,18 +34,18 @@ The bandpass filter is a 3rd-Order, Series-First, Bessel filter that was generat
 ## DC Voltage Offset
 ![DC Voltage OFfset Rev 2](/images/Schematics/Rev2_Schem_DCOffset.png)
 
-Since we didn't want to create a negative supply for our op-amps, we opted for using them with a single supply and giving our signal a DC offset that sits in the middle between the 4.3V supply and ground. This ofset was done via a simple voltage divider of two 10k resistors from 4.3V to GND.
+Since we didn't want to create a negative supply for our op-amps, we opted for using them with a single supply and giving our signal a DC offset that sits in the middle between the 4.3V supply and ground. This offset was done via a simple voltage divider of two 10k resistors from 4.3V to GND.
 
 ## Tayloe Mixer 
 ![Tayloe Mixer Rev 2](/images/Schematics/Rev2_Schem_TayloeMixer.png)
 
-The Tayloe Mixer is a mixer design as seen in [this paper](http://www.norcalqrp.org/files/Tayloe_mixer_x3a.pdf) by Dan Tayloe. We chose it due to it's relatively simple and elegant design. It utilizes a [two-channel SN74CBT multiplexer](http://www.ti.com/lit/ds/symlink/sn74cbt3253.pdf?ts=1591655665924) and a pair of [INA821ID single gain resistor instrumentation amplifiers](http://www.ti.com/lit/ds/symlink/ina821.pdf?HQS=TI-null-null-mousermode-df-pf-null-wwe&DCM=yes&ref_url=https%3A%2F%2Fwww.mouser.com%2F&distId=26). To be more specific, Tayloe describes this as a "swtiching integrator," rather than a mixer, since a mixer normally produces both a sum and difference frequency of the RF and LO signals, while this design only produces the difference frequency. Acknowledging this, I am going to refer to it as a mixer for simplicity.
+The Tayloe Mixer is a mixer design as seen in [this paper](http://www.norcalqrp.org/files/Tayloe_mixer_x3a.pdf) by Dan Tayloe. We chose it due to its relatively simple and elegant design. It utilizes a [two-channel SN74CBT multiplexer](http://www.ti.com/lit/ds/symlink/sn74cbt3253.pdf?ts=1591655665924) and a pair of [INA821ID single gain resistor instrumentation amplifiers](http://www.ti.com/lit/ds/symlink/ina821.pdf?HQS=TI-null-null-mousermode-df-pf-null-wwe&DCM=yes&ref_url=https%3A%2F%2Fwww.mouser.com%2F&distId=26). To be more specific, Tayloe describes this as a "switching integrator," rather than a mixer, since a mixer normally produces both a sum and difference frequency of the RF and LO signals, while this design only produces the difference frequency. Acknowledging this, I am going to refer to it as a mixer for simplicity.
 
 ### Multiplexer
 The [SN74CBT multiplexer](http://www.ti.com/lit/ds/symlink/sn74cbt3253.pdf?ts=1591655665924) acts as a [product detector](https://en.wikipedia.org/wiki/Product_detector), converting the RF signal into four baseband signals. The switching speed of the MUX is set by the local oscillator, which is a divide by 4 circuit created from a 2-bit Johnson counter seen below. This speed is set to be the RF frequency + 10.7kHz. The sampling capacitors shown between the MUX and instrumentation amps will follow the voltage level of the signal while its line's switch is active, and then hold that value while the switch is closed. This will occur on four different lines, outputting four bandbase signals at phases of 0°, 90°, 180°, and 270°. 
 
 ### Instrumentation Amplifiers
-The [INA821ID Instrumentation Amplifiers](http://www.ti.com/lit/ds/symlink/ina821.pdf?HQS=TI-null-null-mousermode-df-pf-null-wwe&DCM=yes&ref_url=https%3A%2F%2Fwww.mouser.com%2F&distId=26) act as differencial summers of the 0° and 180° signals, and the 90° and 270° signals. This is because the information between the two signals within the two pairs are redundant to each other. Summing 0° and 180° will get us our In-Phase (I) signal, and summing the 90° and 270° signals will get us our Quadrature (Q) signal.
+The [INA821ID Instrumentation Amplifiers](http://www.ti.com/lit/ds/symlink/ina821.pdf?HQS=TI-null-null-mousermode-df-pf-null-wwe&DCM=yes&ref_url=https%3A%2F%2Fwww.mouser.com%2F&distId=26) act as differential summers of the 0° and 180° signals, and the 90° and 270° signals. This is because the information between the two signals within the two pairs are redundant to each other. Summing 0° and 180° will get us our In-Phase (I) signal and summing the 90° and 270° signals will get us our Quadrature (Q) signal.
 
 ## Lowpass Filter
 ![Lowpass Filter](/images/Schematics/Rev2_Schem_LowpassFilter.png)
@@ -63,10 +63,10 @@ LTspice simulation info...
 # PCB Design
 ![Board Render](/images/BoardRenderSmall_Rev2.png)
 
-We sourced our board from [JLCPCB](https://jlcpcb.com/), who had an offer going of 5, 2-layer, 100x100mm boards for $2. With that size in mind, my partner and I both did our own board layouts and compared after to decide which to send in for printing. We wanted to be sure to match the impedence of the antenna all the way through to the instrumentation amps, so we used the PCB Calculator in KiCad to find the trace width we needed: 1.064mm. The input to the calculator can be seen here:
+We sourced our board from [JLCPCB](https://jlcpcb.com/), who had an offer going of 5, 2-layer, 100x100mm boards for $2. With that size in mind, my partner and I both did our own board layouts and compared after to decide which to send in for printing. We wanted to be sure to match the impedance of the antenna all the way through to the instrumentation amps, so we used the PCB Calculator in KiCad to find the trace width we needed: 1.064mm. The input to the calculator can be seen here:
 ![PCB Calculator Screen](/images/PCBCalculatorSettings.png)
 
-We got the rest of the information, such as the substrate parameters, from [JLCPCB's Capabilities page](https://jlcpcb.com/capabilities/Capabilities). The design shown above was mine, doing my best to keep traces relatively short and stright and parts close to the next. However...
+We got the rest of the information, such as the substrate parameters, from [JLCPCB's Capabilities page](https://jlcpcb.com/capabilities/Capabilities). The design shown above was mine, doing my best to keep traces relatively short and straight and parts close to the next. However...
 
 # Construction and Testing
 The PCB layout we decided to print was my partner's who had a layout with really nice divisions between sections, which we believed would be easier for testing. You can find that layout on [his GitHub page](https://github.com/froeca/Software-Defined-Radio). All of the components are exactly the same, only the layout is different.
@@ -77,14 +77,14 @@ Before receiving the parts from Dr. Frohne, JLCPCB, and Digikey, we put together
 For info on the testing of the project, head over to the [Testing page on the Wiki](https://github.com/KonradMcClure/SDR_Receiver/wiki/Rev-2-Testing)!
 
 # Quisk Setup
-Loading the Arduino Nano with the OpenRadio software found [here](\Arduino\PSK), I opened the quisk_conf_openradio.py file and change the info in the SERIAL PORT SETTINGS sections to the COM# port that my arduino is plugged into. This was found in Device Manager on Windows 10. In Device Manager, I also right clicked the COM port and went to Properties > Port Settings and changed the Bits per second to 57600 to match the value in the config file.
+Loading the Arduino Nano with the OpenRadio software found [here](\Arduino\PSK), I opened the quisk_conf_openradio.py file and change the info in the SERIAL PORT SETTINGS sections to the COM# port that my Arduino is plugged into. This was found in Device Manager on Windows 10. In Device Manager, I also right clicked the COM port and went to Properties > Port Settings and changed the Bits per second to 57600 to match the value in the config file.
 
 After opening Quisk, I went to Config > Radios and added a radio of the type SoftRock Fixed and named it MyRadioBoy (not necessary), setting it to open to that new radio. Under the new MyRadioBoy tab and Hardware subtab, I changed the Hardware File Path to point to the quisk_conf_openradio.py in the repository. Then in the Sound subtab, I made sure the I/Q Rx Sample Input was set to the sound card input that my 3.5mm cable was connected to from the board.
 
 # Results!
 Sending in a 8MHz test frequency, I could see that the image rejection was pretty good, but I went to the Config tab and clicked the "Adjust receive amplitude and phase" button. **I adjusted the levels for the best image rejection I could get, dropping the image down to about the same level as the spurious signals.**
 
-Then, using a step attenuator Caleb and I designed before this radio, I input a 50uV 8MHz signal to the receiver and attenuated it by 40dB, which was just higher than the spurious signals. **From this I concluded our minimum dicernable signal was about 0.5uV.**
+Then, using a step attenuator Caleb and I designed before this radio, I input a 50uV 8MHz signal to the receiver and attenuated it by 40dB, which was just higher than the spurious signals. **From this I concluded our minimum discernable signal was about 0.5uV.**
 
 After stringing a wire out to my roof as an antenna (about 50ft up or so) and soldering one end to an SMA connector, I connected it to the board. While not the clearest, it picks up signals pretty well! [You can see some signals that I was able to receive here!](https://github.com/KonradMcClure/SDR_Receiver/tree/master/video)
 
