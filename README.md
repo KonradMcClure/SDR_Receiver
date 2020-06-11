@@ -61,24 +61,24 @@ Professor Rob Frohne suggested that we all use a BJT to smooth the voltage comin
 We simulated each of our main parts in LTspice to confirm our design. Some things, 
 
 ## Bandpass Filter Simulation
-![Bandpass Filter Simulation Model](/images/Simulation/BandpassFilterSimModel.png)
-![Bandpass Filter Simulation Output](/images/Simulation/BandpassFilterSimOutput.png)
+![Bandpass Filter Simulation Model](/images/simulation/BandpassFilterSimModel.png)
+![Bandpass Filter Simulation Output](/images/simulation/BandpassFilterSimOutput.png)
 
 First we simulated the bandpass filter to check it's response. As seen here, and as mentioned later, our bandpass filter for Rev 2 got it's values messed up, which led to a similar, but incorrect response. We re-ran the RF Tools filter design and retested the response of our new filter in LTspice. As can be seen above, the response is much better. The filter on the bottom is calculated with 5% tolerances on all the components and then adjusted for the same toroids that we were provided by our professor. The differences between the bottom three are neglible, so only our current filter and the final adjusted one is plotted.
 
 ## Lowpass Simulation
-![Lowpass Filter Simulation Model](/images/Simulation/LowpassFilterSimModel.png)
-![Lowpass Filter Simulation Output](/images/Simulation/LowpassFilterSim.png)
+![Lowpass Filter Simulation Model](/images/simulation/LowpassFilterSimModel.png)
+![Lowpass Filter Simulation Output](/images/simulation/LowpassFilterSim.png)
 
 We also tested out our lowpass filter. Luckily LTspice had the OP213's built-in, so we were confident in the results. We can see that the cutoff is at 100kHz as we expected. 
 
 ## Full Design Simulation
-![Full Rev 2 Simulation Model](/images/simulation/Rev2DesignSimModel)
+![Full Rev 2 Simulation Model](/images/simulation/Rev2DesignSimModel.png)
 
 With the two filters out of the way, we can assemble the components inbetween. We have created a model for the mux using four voltage controlled switches, and four voltage pulses that control them in the same manner that the Johnson counter will. For instrumentation amps, we used LT1167s because they didn't take as long to simulate as long as ones we tried to import. The LT1167's had a much higher noise profile than the INA821's we selected, so we figured if we could get these to work, the INA821's would work great. below you can see the baseband signals and the I and Q outputs. They're exactly as we'd like to see them, about 90 degrees out of phase and at a frequency of about 10.8kHz.
 
-![Full Rev 2 Simulation Baseband Output](/images/Simulation/Rev2DesignSim_BasebandSignals)
-![Full Rev 2 Simulation I and Q Output](/images/Simulation/Rev2DesignSim_IQOut)
+![Full Rev 2 Simulation Baseband Output](/images/simulation/Rev2DesignSim_BasebandSignals.png)
+![Full Rev 2 Simulation I and Q Output](/images/simulation/Rev2DesignSim_IQOut.png)
 
 
 # PCB Design
