@@ -1,5 +1,6 @@
 # Low-Cost Software Defined Radio Receiver
-The goal of this project was to design a low-cost software-defined radio (SDR) receiver. 
+The goal of this project was to design a low-cost software-defined radio (SDR) receiver. This project was done for my Walla Walla University Electronics II course with my partner [Caleb Froelich](https://github.com/froeca).
+
 ## Design Objectives
 Our professor, [Dr. Rob Frohne](https://github.com/frohro), gave us the following design objectives:
   1. Minimum discernible signal less than 1 uV
@@ -7,7 +8,7 @@ Our professor, [Dr. Rob Frohne](https://github.com/frohro), gave us the followin
   3. Low noise figure
   4. Inexpensive to build ($25 component budget)
   
-My partner, [Caleb Froelich](https://github.com/froeca), and I set our own design objectives as well to help narrow down the design we settled on:
+My partner, Caleb, and I set our own design objectives as well to help narrow down the design we settled on:
   1. **Simple Design**: We wanted our design to be easy to understand and construct. As such we avoided using transformers and used a Tayloe Mixer which has a relatively easy to understand design.
   2. **Ease of Construction**: Since this class took place during an online quarter due to COVID-19, we wanted to make sure construction wouldn't be too difficult without the usual tools we have in our lab. This decision shaped our board layout and part selection (picking through-hole parts as opposed to surface-mount when possible).
   3. **Ease and Quality of Amplification**: Most of the cost that goes into the board went into getting good, low-noise operational amplifiers. The instrumentation amps we chose use a single resistor to set the gain, making it easy to switch out and test different gain values.
@@ -113,4 +114,5 @@ After stringing a wire out to my roof as an antenna (about 50ft up or so) and so
 
 # Credits
 My teammate [Caleb Froelich](https://github.com/froeca), who has [his own repository of this project](https://github.com/froeca/Software-Defined-Radio).
+
 My professor [Dr. Rob Frohne](https://github.com/frohro), who provided us with an example of a similar [project of his own here](https://github.com/frohro/IQ_SDR)!
