@@ -84,8 +84,10 @@ After opening Quisk, I went to Config > Radios and added a radio of the type Sof
 # Results!
 Sending in a 8MHz test frequency, I could see that the image rejection was pretty good, but I went to the Config tab and clicked the "Adjust receive amplitude and phase" button. **I adjusted the levels for the best image rejection I could get, dropping the image down to about the same level as the spurious signals.**
 
+![Minimum Dicernable Signal Test](/images/testing/MinimumDiscernableSignal.png)
 Then, using a step attenuator Caleb and I designed before this radio, I input a 50uV 8MHz signal to the receiver and attenuated it by 40dB, which was just higher than the spurious signals. **From this I concluded our minimum discernable signal was about 0.5uV.**
 
+![It works!](/images/WorkingReceiver.png)
 After stringing a wire out to my roof as an antenna (about 50ft up or so) and soldering one end to an SMA connector, I connected it to the board. While not the clearest, it picks up signals pretty well! [You can see some signals that I was able to receive here!](https://github.com/KonradMcClure/SDR_Receiver/tree/master/video)
 
 # Credits
